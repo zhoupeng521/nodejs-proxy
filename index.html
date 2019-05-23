@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+</head>
+<body>
+    <h1>hahah</h1>
+    <button class="button"> hahh </button>
+    <button class="button2"> hahh </button>
+    <script>
+        $('.button').click( function(){
+            $.ajax({
+                url:'/api/finance/user/captcha/graphic',
+				type:'post',
+                headers:{
+                    "x-auth-token": "6491f900-a968-41b4-b56b-778eca4eb8b1",
+                },
+                success:function(e){
+                }
+            })
+        } )
+        $('.button2').click( function(){
+			var sendData = {phone:"18356066200",captchaType:"CAPTCHA_TYPE_LOGIN",timeExpire:"TIME_MINUTE_1",captchaUid:"805ed13a-db05-4666-a890-9752bf159578",pictureCaptcha:"1111"};
+            $.ajax({
+                url:'/api/finance/user/wechat/captcha/phone',
+				type:'post',
+				dataType:'json',
+				contentType:"application/json",
+				data:JSON.stringify(sendData),//使用变量sendData
+                success:function(e){ 
+                }
+            })
+        } )
+    </script>
+</body>
+</html>
